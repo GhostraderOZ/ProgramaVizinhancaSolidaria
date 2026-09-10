@@ -1,841 +1,371 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PVS Rua Lírio | Programa Vizinhança Solidária Osasco</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <style>
-    /* Habilita a rolagem suave na página */
-    html {
-      scroll-behavior: smooth;
-    }
-
-    :root {
-      --primary-dark: #0f172a;
-      --secondary-dark: #1e293b;
-      --accent-blue: #1d4ed8;
-      --accent-blue-hover: #1e40af;
-      --green-action: #16a34a;
-      --green-action-hover: #15803d;
-      --green-whatsapp: #25d366;
-      --green-whatsapp-hover: #1eaa53;
-      --text-light: #f8fafc;
-      --text-muted: #94a3b8;
-      --text-dark: #1e293b;
-      --bg-light: #f1f5f9;
-      --card-bg: #ffffff;
-      --danger-red: #dc2626;
-      --border-color: #cbd5e1;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background-color: var(--bg-light);
-      color: var(--text-dark);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Links Genéricos dentro do conteúdo */
-    .content-box a {
-      color: var(--accent-blue);
-      text-decoration: underline;
-      font-weight: 600;
-      transition: color 0.2s ease;
-    }
-
-    .content-box a:hover {
-      color: var(--accent-blue-hover);
-    }
-
-    /* Container global */
-    .container {
-      width: 100%;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* Header */
-    header {
-      background-color: var(--primary-dark);
-      border-bottom: 2px solid var(--accent-blue);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      padding: 15px 0;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--text-light);
-      font-weight: 800;
-      font-size: 1.2rem;
-      text-decoration: none;
-    }
-
-    .logo-badge {
-      background: var(--accent-blue);
-      color: #fff;
-      padding: 4px 8px;
-      border-radius: 6px;
-      font-size: 0.85rem;
-      letter-spacing: 1px;
-    }
-
-    .header-btn {
-      background-color: transparent;
-      border: 2px solid var(--green-action);
-      color: #34d399;
-      padding: 8px 16px;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .header-btn:hover {
-      background-color: var(--green-action);
-      color: #fff;
-    }
-
-    /* Hero Section */
-    .hero {
-      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
-      color: var(--text-light);
-      padding: 60px 0 70px 0;
-      text-align: center;
-    }
-
-    .hero-tag {
-      display: inline-block;
-      background-color: rgba(220, 38, 38, 0.2);
-      color: #fca5a5;
-      border: 1px solid rgba(220, 38, 38, 0.4);
-      padding: 6px 16px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .hero h1 {
-      font-size: 2.3rem;
-      font-weight: 900;
-      line-height: 1.25;
-      margin-bottom: 20px;
-      color: #ffffff;
-    }
-
-    .hero h1 span {
-      color: #60a5fa;
-    }
-
-    .hero p {
-      font-size: 1.15rem;
-      color: var(--text-muted);
-      max-width: 800px;
-      margin: 0 auto 35px auto;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      background-color: var(--green-action);
-      color: #ffffff;
-      padding: 18px 36px;
-      border-radius: 10px;
-      font-size: 1.15rem;
-      font-weight: 800;
-      text-decoration: none;
-      box-shadow: 0 10px 25px rgba(22, 163, 74, 0.4);
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn-primary:hover {
-      background-color: var(--green-action-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 14px 30px rgba(22, 163, 74, 0.5);
-    }
-
-    /* Key Benefits Grid */
-    .benefits-bar {
-      background-color: #ffffff;
-      padding: 30px 0;
-      border-bottom: 1px solid var(--border-color);
-      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-    }
-
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
-    .benefit-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 15px;
-      padding: 15px;
-      background-color: var(--bg-light);
-      border-radius: 8px;
-    }
-
-    .benefit-icon {
-      background: var(--accent-blue);
-      color: #fff;
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      flex-shrink: 0;
-    }
-
-    .benefit-text h3 {
-      font-size: 1rem;
-      color: var(--primary-dark);
-      margin-bottom: 4px;
-    }
-
-    .benefit-text p {
-      font-size: 0.875rem;
-      color: #64748b;
-    }
-
-    /* Content Sections */
-    .section {
-      padding: 60px 0;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .section-title h2 {
-      font-size: 1.8rem;
-      color: var(--primary-dark);
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-
-    .section-title p {
-      color: #64748b;
-      font-size: 1rem;
-    }
-
-    /* Cards & Content */
-    .content-box {
-      background: var(--card-bg);
-      border-radius: 12px;
-      padding: 30px;
-      margin-bottom: 30px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      border: 1px solid #e2e8f0;
-    }
-
-    .content-img {
-      width: 100%;
-      max-width: 650px;
-      height: auto;
-      border-radius: 10px;
-      display: block;
-      margin: 25px auto;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-    }
-
-    .alert-box {
-      background-color: #fef2f2;
-      border-left: 5px solid var(--danger-red);
-      padding: 20px;
-      border-radius: 0 8px 8px 0;
-      margin: 20px 0;
-    }
-
-    .alert-box h4 {
-      color: var(--danger-red);
-      font-size: 1.1rem;
-      margin-bottom: 8px;
-    }
-
-    .alert-box p {
-      color: #991b1b;
-      font-size: 0.95rem;
-    }
-
-    /* Comparison Table */
-    .table-container {
-      overflow-x: auto;
-      margin: 30px 0;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: #fff;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    }
-
-    th, td {
-      padding: 15px 18px;
-      text-align: left;
-      border-bottom: 1px solid #e2e8f0;
-    }
-
-    th {
-      background-color: var(--primary-dark);
-      color: #fff;
-      font-size: 0.95rem;
-      font-weight: 700;
-    }
-
-    tr:nth-child(even) {
-      background-color: #f8fafc;
-    }
-
-    .status-badge {
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 12px;
-      font-size: 0.8rem;
-      font-weight: 700;
-    }
-
-    .status-success {
-      background-color: #dcfce7;
-      color: #166534;
-    }
-
-    .status-progress {
-      background-color: #fef3c7;
-      color: #92400e;
-    }
-
-    .status-alert {
-      background-color: #fee2e2;
-      color: #991b1b;
-    }
-
-    /* List styling */
-    .styled-list {
-      list-style: none;
-      margin: 20px 0;
-    }
-
-    .styled-list li {
-      position: relative;
-      padding-left: 30px;
-      margin-bottom: 12px;
-      font-size: 1rem;
-    }
-
-    .styled-list li::before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: var(--green-action);
-      font-weight: 900;
-      font-size: 1.2rem;
-    }
-
-    .styled-list.danger li::before {
-      content: "✕";
-      color: var(--danger-red);
-    }
-
-    /* WhatsApp Banner */
-    .whatsapp-banner {
-      background: linear-gradient(135deg, #128c7e 0%, #25d366 100%);
-      color: #fff;
-      border-radius: 12px;
-      padding: 35px 25px;
-      text-align: center;
-      margin: 50px 0;
-      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
-    }
-
-    .whatsapp-banner h3 {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-      font-weight: 800;
-    }
-
-    .whatsapp-banner p {
-      font-size: 1rem;
-      margin-bottom: 25px;
-      opacity: 0.95;
-    }
-
-    .btn-whatsapp {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background-color: #ffffff;
-      color: #128c7e;
-      padding: 16px 30px;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      font-weight: 800;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-
-    .btn-whatsapp:hover {
-      background-color: #f8fafc;
-      transform: scale(1.03);
-    }
-
-    /* Lead Capture Form Section */
-    .capture-section {
-      background-color: var(--primary-dark);
-      color: #fff;
-      padding: 60px 0;
-      border-radius: 16px;
-      margin: 50px 0;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-    }
-
-    .form-container {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .form-header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .form-header h2 {
-      font-size: 1.8rem;
-      color: #ffffff;
-      margin-bottom: 10px;
-      font-weight: 800;
-    }
-
-    .form-header p {
-      color: var(--text-muted);
-      font-size: 1rem;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      color: #e2e8f0;
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 14px 16px;
-      border-radius: 8px;
-      border: 1px solid #334155;
-      background-color: #1e293b;
-      color: #fff;
-      font-size: 1rem;
-      transition: border-color 0.3s ease;
-      font-family: inherit;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--accent-blue);
-      box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.3);
-    }
-
-    .btn-submit {
-      width: 100%;
-      background-color: var(--green-action);
-      color: #ffffff;
-      padding: 18px;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      font-weight: 800;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-top: 10px;
-    }
-
-    .btn-submit:hover {
-      background-color: var(--green-action-hover);
-      box-shadow: 0 8px 20px rgba(22, 163, 74, 0.4);
-    }
-
-    .microcopy {
-      text-align: center;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-top: 15px;
-    }
-
-    /* Footer */
-    footer {
-      background-color: var(--primary-dark);
-      color: var(--text-muted);
-      padding: 30px 0;
-      text-align: center;
-      border-top: 1px solid #1e293b;
-      font-size: 0.9rem;
-    }
-
-    footer a {
-      color: var(--text-muted);
-      text-decoration: underline;
-      margin: 0 10px;
-    }
-
-    /* Responsividade */
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 1.7rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
-
-      .btn-primary {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 1rem;
-      }
-
-      .section-title h2 {
-        font-size: 1.4rem;
-      }
-
-      .content-box {
-        padding: 20px;
-      }
-
-      th, td {
-        padding: 10px 12px;
-        font-size: 0.85rem;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vizinhança Solidária — Jardim das Flores</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    background: #f6f5f0;
+    color: #2b2b2b;
+    margin: 0;
+    padding: 0 16px 48px;
+    line-height: 1.65;
+  }
+  .container { max-width: 680px; margin: 0 auto; }
+
+  header {
+    text-align: center;
+    padding: 32px 16px 24px;
+  }
+  header .badge {
+    display: inline-block; background: #fff; border-radius: 50%;
+    padding: 6px; margin-bottom: 14px; box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  }
+  header .badge img { width: 90px; display: block; border-radius: 50%; }
+  header h1 { font-size: 24px; margin: 0 0 6px; color: #A8241F; }
+  header .subtitle { font-size: 14px; color: #666; margin: 0; }
+  header .streets-tag {
+    display: inline-block; margin-top: 10px; background: #eafaf0; color: #0F6E56;
+    font-size: 13px; font-weight: 600; padding: 5px 14px; border-radius: 20px;
+  }
+
+  .emergency {
+    background: linear-gradient(135deg, #A8241F, #C1272D);
+    color: #fff; border-radius: 16px; padding: 18px; margin: 24px 0;
+  }
+  .emergency-title { font-size: 13px; opacity: 0.9; text-align: center; margin-bottom: 10px; }
+  .emergency-grid { display: flex; justify-content: space-around; gap: 8px; }
+  .emergency-grid div { text-align: center; }
+  .emergency .number { font-size: 28px; font-weight: 700; }
+  .emergency .label { font-size: 12px; opacity: 0.9; }
+
+  section {
+    background: #fff; border-radius: 16px;
+    padding: 20px 22px; margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  h2 {
+    font-size: 17px; margin: 0 0 12px; color: #1a1a1a;
+    display: flex; align-items: center; gap: 8px;
+  }
+  h2 .emoji { font-size: 18px; }
+  h3 { font-size: 14px; margin: 16px 0 4px; color: #1a1a1a; font-weight: 600; }
+  p { font-size: 14.5px; margin: 0 0 10px; color: #3a3a3a; }
+  ul { padding-left: 20px; margin: 0 0 10px; }
+  li { font-size: 14.5px; margin-bottom: 5px; color: #3a3a3a; }
+  ol li { font-size: 14.5px; margin-bottom: 10px; color: #3a3a3a; }
+
+  .faq-item { border-bottom: 1px solid #f0f0ee; padding: 12px 0; }
+  .faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .faq-q { font-size: 14.5px; font-weight: 600; margin-bottom: 4px; color: #1a1a1a; }
+  .faq-a { font-size: 14.5px; color: #4a4a4a; margin: 0; }
+
+  .plate-wrap { text-align: center; margin-top: 12px; margin-bottom: 14px; }
+  .plate-wrap img {
+    max-width: 100%; width: 100%; border-radius: 14px;
+    border: 1px solid #eee; box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  }
+  .plate-caption { font-size: 12.5px; color: #888; margin-top: 8px; }
+
+  a { color: #185FA5; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .street-block { margin-bottom: 20px; }
+  .street-block:last-child { margin-bottom: 0; }
+  .street-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .street-name { font-size: 15px; font-weight: 600; color: #1a1a1a; }
+  .street-count {
+    font-size: 12px; color: #0F6E56; background: #eafaf0;
+    padding: 3px 10px; border-radius: 12px; font-weight: 600;
+  }
+  .residents {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
+  }
+  @media (max-width: 420px) { .residents { grid-template-columns: 1fr; } }
+  .resident {
+    display: flex; align-items: center; gap: 8px;
+    background: #f8f8f5; border-radius: 10px; padding: 8px 10px;
+    font-size: 13px; color: #333;
+  }
+  .resident .dot {
+    width: 7px; height: 7px; border-radius: 50%; background: #639922; flex-shrink: 0;
+  }
+
+  /* Form Styling */
+  .form-group {
+    margin-bottom: 14px;
+  }
+  .form-group label {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #1a1a1a;
+  }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    background: #fff;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: #185FA5;
+    box-shadow: 0 0 0 2px rgba(24, 95, 165, 0.2);
+  }
+  .btn-submit {
+    width: 100%;
+    background: #185FA5;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  .btn-submit:hover {
+    background: #12467B;
+  }
+
+  .callout-tip {
+    background-color: #FFF9E6;
+    border-left: 4px solid #F5A623;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-top: 16px;
+    font-size: 13.5px;
+    color: #4A3B00;
+  }
+
+  .closing { text-align: center; padding: 20px 10px; }
+  .closing p { font-size: 14px; color: #555; margin-bottom: 4px; }
+  .closing .heart { color: #C1272D; font-size: 18px; }
+
+  footer { text-align: center; font-size: 12px; color: #999; margin-top: 20px; }
+</style>
 </head>
 <body>
+<div class="container">
 
-  <!-- 1. Cabeçalho (Header) -->
   <header>
-    <div class="container header-content">
-      <a href="#" class="logo">
-        <span class="logo-badge">PVS</span>
-        <span>RUA LÍRIO</span>
-      </a>
-      <a href="#cadastro" class="header-btn">Aderir Agora</a>
-    </div>
+    <h1>Vizinhança Solidária</h1>
+    <div class="subtitle">Jardim das Flores</div>
+    <div class="streets-tag">Rua Lírio</div>
   </header>
 
-  <!-- 2. Seção Principal (Hero Section) -->
-  <section class="hero">
-    <div class="container">
-      <span class="hero-tag">Segurança Coletiva Oficial em Osasco</span>
-      <h1>Proteção do Patrimônio, Paz na Vizinhança e <span>Segurança Sem Riscos Financeiros</span></h1>
-      <p>A Solução Definitiva e Legal para Eliminar Barulho Abusivo, Valorizar Nossos Imóveis e Blindar Nossa Rua Contra a Criminalidade.</p>
-      <a href="#cadastro" class="btn-primary">Sim, eu quero fazer parte do PVS na Rua Lírio</a>
-    </div>
-  </section>
-
-  <!-- Benefits Bar -->
-  <div class="benefits-bar">
-    <div class="container">
-      <div class="benefits-grid">
-        <div class="benefit-item">
-          <div class="benefit-icon">✓</div>
-          <div class="benefit-text">
-            <h3>Solução Urgente & Legal</h3>
-            <p>Fim da perturbação de bares e barulho noturno com apoio oficial da PM e Prefeitura.</p>
-          </div>
-        </div>
-        <div class="benefit-item">
-          <div class="benefit-icon">✓</div>
-          <div class="benefit-text">
-            <h3>Proteção Patrimonial</h3>
-            <p>Evite a desvalorização drástica dos imóveis (de até 40%) na Rua Lírio.</p>
-          </div>
-        </div>
-        <div class="benefit-item">
-          <div class="benefit-icon">✓</div>
-          <div class="benefit-text">
-            <h3>Segurança Jurídica</h3>
-            <p>Risco ZERO de processos trabalhistas contra moradores na Justiça do Trabalho.</p>
-          </div>
-        </div>
+  <div class="emergency">
+    <div class="emergency-title">EMERGÊNCIA — LIGUE IMEDIATAMENTE</div>
+    <div class="emergency-grid">
+      <div>
+        <div class="number">190</div>
+        <div class="label">Polícia Militar</div>
+      </div>
+      <div>
+        <div class="number">153</div>
+        <div class="label">Guarda Municipal</div>
+      </div>
+      <div>
+        <div class="number">193</div>
+        <div class="label">Bombeiros</div>
+      </div>
+      <div>
+        <div class="number">197</div>
+        <div class="label">Polícia Civil</div>
+      </div>
+      <div>
+        <div class="number">156</div>
+        <div class="label">Prefeitura</div>
+      </div>
+      <div>
+        <div class="number">181</div>
+        <div class="label">Disque-Denúncia</div>
       </div>
     </div>
   </div>
 
-  <!-- 3. Corpo da Página (Copywriting AIDA/PAS) -->
-  <main class="container section">
+  <section>
+    <h2><span class="emoji">🛡️</span> O que é o Programa?</h2>
+    <p>O <strong>Programa Vizinhança Solidária (PVS)</strong> é uma iniciativa comunitária apoiada pela Polícia Militar do Estado de São Paulo. Nosso objetivo é unir os moradores do Jardim das Flores para prevenir delitos, melhorar a comunicação e criar um ambiente mais seguro para todas as famílias.</p>
+    <p><strong>Não é vigilância privada nem ronda armada.</strong> É cooperação, atenção mútua e comunicação rápida entre vizinhos que se cuidam.</p>
+  </section>
 
-    <!-- Caso de Sucesso -->
-    <div class="content-box">
-      <div class="section-title">
-        <h2>Resultados Reais ao Nosso Lado</h2>
-        <p>O Caso de Sucesso da Rua Rosa: O PVS Não É Teoria, É Resultado Comprovado!</p>
-      </div>
+  <section>
+    <h2><span class="emoji">🤝</span> Como Funciona na Prática?</h2>
+    <ul>
+      <li><strong>Grupo de WhatsApp monitorado:</strong> Canal exclusivo para alertas de segurança, atitudes suspeitas e avisos importantes.</li>
+      <li><strong>Rede de olhares atenta:</strong> Percebeu algo estranho na rua? Um veículo desconhecido parado há muito tempo? Avise no grupo.</li>
+      <li><strong>Placa de identificação:</strong> Casos participantes exibem a placa oficial do programa, sinalizando que a rua é monitorada pela comunidade.</li>
+      <li><strong>Reuniões periódicas:</strong> Encontros com representantes da PM e CONSEG para alinhar ações e avaliar a segurança do bairro.</li>
+    </ul>
+  </section>
 
-      <p>Enquanto muitos acham que segurança é questão de sorte, a vizinhança ao nosso lado provou que é questão de organização e respaldo legal. Veja o que mudou na Rua Rosa:</p>
+  <section>
+    <h2><span class="emoji">📋</span> Regras do Grupo de WhatsApp</h2>
+    <p>Para garantir a eficiência do canal de emergência, todos os membros devem seguir estas regras simples:</p>
+    <ol>
+      <li><strong>Uso exclusivo para SEGURANÇA:</strong> Proibido mensagens de "bom dia", memes, política, religião ou correntes.</li>
+      <li><strong>Alertas claros e objetivos:</strong> Ao relatar algo suspeito, informe local exato, características e, se possível, modelo/cor do veículo.</li>
+      <li><strong>Em caso de perigo real, LIGUE 190 PRIMEIRO:</strong> O grupo serve para alertar os vizinhos, mas a Polícia deve ser acionada imediatamente pelo telefone.</li>
+      <li><strong>Respeito e empatia:</strong> Trate todos os vizinhos com cordialidade. Sem discussões pessoais no grupo.</li>
+    </ol>
+  </section>
 
-      <ul class="styled-list">
-        <li><strong>Fim da Perturbação do Sossego:</strong> A Rua Rosa já implantou o PVS e o número de ocorrências por barulho diminuiu drasticamente.</li>
-        <li><strong>Encerramento de Atividades Suspeitas:</strong> O famigerado <em>Bar Revoada</em> foi permanentemente FECHADO, eliminando frequentadores mal-intencionados da região.</li>
-        <li><strong>Presença Policial Constante:</strong> A Polícia Militar agora mantém rondas ostensivas e presença ativa diária na via.</li>
-      </ul>
-
-      <img src="Rua Rosa.jpg" alt="A Rua Rosa foi a primeira a se mobilizar com o PVS" class="content-img">
+  <section>
+    <h2><span class="emoji">🪧</span> Placa de Identificação</h2>
+    <div class="plate-wrap" style="max-width: 220px; margin: 0 auto 14px;">
+      <img src="Placa  do PVS para usar na sua casa.jpg" alt="Placa Vizinhança Solidária">
+      <div class="plate-caption">Exemplo da placa afixada nas residências participantes</div>
     </div>
+    <p>A placa do Vizinhança Solidária inibe a ação de criminosos, pois sinaliza que aquela vizinhança é organizada e se comunica em tempo real.</p>
+  </section>
 
-    <!-- O Bairro Está se Protegendo -->
-    <div class="content-box">
-      <div class="section-title">
-        <h2>O Bairro Está Se Protegendo: E a Nossa Rua?</h2>
-        <p>A Rua Girassol e a Rua Jasmim já iniciaram os trâmites do Programa Vizinhança Solidária.</p>
-      </div>
-
-      <div class="table-container">
-        <table>
-          <thead>
-            <tr>
-              <th>Rua</th>
-              <th>Status do PVS</th>
-              <th>Impacto Direto</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Rua Rosa</strong></td>
-              <td><span class="status-badge status-success">100% Implantado</span></td>
-              <td>Bar Revoada fechado, paz restabelecida e rondas diárias da PM.</td>
-            </tr>
-            <tr>
-              <td><strong>Rua Girassol</strong></td>
-              <td><span class="status-badge status-progress">Em Implantação</span></td>
-              <td>Mobilização comunitária avançada e cadastro junto à PM.</td>
-            </tr>
-            <tr>
-              <td><strong>Rua Jasmim</strong></td>
-              <td><span class="status-badge status-progress">Em Implantação</span></td>
-              <td>Adesão massiva de moradores em andamento.</td>
-            </tr>
-            <tr>
-              <td><strong>Rua Lírio (Nossa Rua)</strong></td>
-              <td><span class="status-badge status-alert">A Decisão É Hoje!</span></td>
-              <td>Se não agirmos, seremos a única rua vulnerável da região.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="alert-box">
-        <h4>Alerta Crítico para a Rua Lírio:</h4>
-        <p>A criminalidade e a bagunça migram exatamente para onde não há resistência. Se todas as ruas vizinhas se blindarem e a Rua Lírio continuar inerte, nos tornaremos o único alvo fácil do bairro!</p>
-      </div>
+  <section>
+    <h2><span class="emoji">❓</span> Perguntas Frequentes (FAQ)</h2>
+    <div class="faq-item">
+      <div class="faq-q">Paga alguma coisa para participar?</div>
+      <div class="faq-a">Não. O programa é 100% gratuito e voluntário. O único custo opcional é a confecção da placa para quem quiser colocar na fachada.</div>
     </div>
-
-    <!-- Riscos do Guarda Noturno Informal -->
-    <div class="content-box">
-      <div class="section-title">
-        <h2>O Risco Oculto do "Guarda Noturno" Informal</h2>
-        <p>A Falsa Proteção que Pode Criar Uma Bomba Trabalhista na Sua Conta</p>
-      </div>
-
-      <p>Muitos moradores acreditam que pagar uma taxa mensal para um apitador informal traz segurança. A realidade é alarmante:</p>
-
-      <ul class="styled-list danger">
-        <li><strong>Sem Treinamento nem Poder de Polícia:</strong> Vigilantes informais atuam em flagrante Usurpação de Função Pública (<a href="https://www.jusbrasil.com.br/topicos/10597740/artigo-328-do-decreto-lei-n-2848-de-07-de-dezembro-de-1940" target="_blank">Art. 328 do Código Penal</a>).</li>
-        <li><strong>A Armadilha Trabalhista (<a href="https://www.planalto.gov.br/ccivil_03/decreto-lei/del5452compilado.htm" target="_blank">Art. 2º e 3º da CLT</a>):</strong> Pagamentos espontâneos recorrentes caracterizam "Grupo de Empregadores Fáticos". Basta 1 recibo, PIX ou testemunha para gerar vínculo com TODOS os moradores pagantes.</li>
-        <li><strong><a href="https://sistemas.trt3.jus.br/bd-trt3/bitstream/handle/11103/22272/Boletim%20de%20Legisla%C3%A7%C3%A3o%20e%20Jurisprud%C3%AAncia%20do%20TRT%20da%203%C2%AA%20Regi%C3%A3o%2C%20v.%2026%2C%20n.%202%2C%20Abr.-Jun.%202005.pdf?sequence=2&isAllowed=y" target="_blank">Prejuízo Solidário de R$ 19,8 Mil+ por Morador</a>:</strong> Processos cobrando Adicional Noturno (20%), Periculosidade (30%), FGTS, Férias e Horas Extras podem resultar em penhora de contas bancárias dos moradores.</li>
-        <li><strong>A Farsa da Cobertura:</strong> É matematicamente impossível para uma pessoa vigiar 7 ruas ao mesmo tempo. Ele apenas passa cobrando.</li>
-      </ul>
-
-      <div class="alert-box">
-        <h4>Prova Prática de Inoperância:</h4>
-        <p>No Condomínio Vila dos Amores (Av. Diogo Antônio Feijó, 695), o portão principal foi sumariamente FURTADO durante a madrugada (<a href="https://delegaciadigital.policia-civil.sp.gov.br/pagina-inicial" target="_blank">BO nº MW7985-1/2026</a>). O vigilante pago estava na região, não viu nada e o prejuízo de milhares de reais caiu no bolso dos moradores.</p>
-      </div>
+    <div class="faq-item">
+      <div class="faq-q">Moro de aluguel, posso me cadastrar?</div>
+      <div class="faq-a">Sim! Todos os moradores da rua são bem-vindos, sejam proprietários ou inquilinos.</div>
     </div>
-
-    <!-- Base Legal e Solução PVS -->
-    <div class="content-box">
-      <div class="section-title">
-        <h2>Base Legal e Respaldo Institucional em Osasco</h2>
-        <p>A Solução Oficial e Definitiva a Custo ZERO</p>
-      </div>
-
-      <p>O Programa Vizinhança Solidária não é uma ideia informal. É uma política pública de segurança estruturada:</p>
-
-      <ul class="styled-list">
-        <li><strong><a href="https://www.al.sp.gov.br/repositorio/legislacao/lei/2018/lei-16771-18.06.2018.html" target="_blank">Lei Estadual SP nº 16.771/2018</a>:</strong> Regulamenta o PVS, garantindo apoio oficial da Polícia Militar, canal direto com o comando e integração com o CONSEG.</li>
-        <li><strong><a href="https://leis.org/municipais/sp/osasco/lei/lei-ordinaria/2019/5014/lei-ordinaria-n-5014-2019-fica-adotado-o-programa-vizinhanca-solidaria-no-municipio-de" target="_blank">Lei Municipal Osasco nº 5.014/2019</a>:</strong> Obriga a integração do PVS com a Fiscalização de Posturas, Guarda Civil Municipal (GCM) e Defesa Civil.</li>
-        <li><strong>Combate Eficiente a Bares Irregulares:</strong> Com respaldo da Lei do Silêncio (<a href="https://www.jusbrasil.com.br/legislacao/441465/lei-3724-02#art-1" target="_blank">Lei nº 3.724/2002</a>) e do Código de Posturas (<a href="https://www.jusbrasil.com.br/legislacao/453221/lei-212-64#art-1" target="_blank">Lei nº 212/1964</a>), o PVS gera notificações coletivas oficiais que forçam o fechamento imediato de estabelecimentos barulhentos.</li>
-      </ul>
-
-      <img src="Placa  do PVS para usar na sua casa.jpg" alt="Placa do PVS para usar na sua casa" class="content-img">
-
-      <h3 style="margin-top: 25px; color: var(--primary-dark);">Como Funcionará na Rua Lírio:</h3>
-      <ol style="margin-left: 20px; margin-top: 10px; line-height: 1.8;">
-        <li><strong>Grupo de WhatsApp Exclusivo de Segurança:</strong> Estritamente focado em emergências, atitudes suspeitas e alertas da rua.</li>
-        <li><strong>Canal Unificado de Denúncias:</strong> Acionamento rápido via 190 com prioridade no patrulhamento da PM.</li>
-        <li><strong>Placas Oficiais do PVS nas Fachadas:</strong> Sinalização padronizada que inibe a ação de criminosos e infratores.</li>
-        <li><strong>Tutores do Bairro:</strong> Moradores eleitos para intermediar as demandas diretamente com o Comando da PM e CONSEG Osasco.</li>
-      </ol>
+    <div class="faq-item">
+      <div class="faq-q">E se eu vir algo suspeito na rua?</div>
+      <div class="faq-a">Ligue 190 primeiro se houver emergência ou perigo imediato. Em seguida, envie um aviso objetivo no grupo de WhatsApp para alertar os vizinhos.</div>
     </div>
-
-    <!-- 4. Botão de Suporte WhatsApp -->
-    <div class="whatsapp-banner">
-      <h3>Ficou com Alguma Dúvida Sobre a Implantação?</h3>
-      <p>Converse diretamente com o organizador do PVS na Rua Lírio e tire todas as suas dúvidas antes de preencher o formulário.</p>
-      <a href="https://wa.me/5511963857096" target="_blank" class="btn-whatsapp">
-        <span>[Dúvidas? Fale Comigo no WhatsApp]</span>
-      </a>
+    <div class="faq-item">
+      <div class="faq-q">Quem administra o grupo?</div>
+      <div class="faq-a">Tutores voluntários eleitos pelos próprios moradores, em contato direto com a Polícia Militar da nossa região.</div>
     </div>
-
-    <!-- 5. Seção Final de Captura de Leads -->
-    <div class="capture-section" id="cadastro">
-      <div class="form-container">
-        <div class="form-header">
-          <h2>Garanta a Segurança da Rua Lírio e Proteja Seu Patrimônio Hoje Mesmo!</h2>
-          <p>Preencha os dados abaixo para ser incluído no grupo oficial de segurança e cadastro do PVS da Rua Lírio.</p>
+    <div class="faq-item">
+      <div class="faq-q">Participar do programa dá prioridade ao ligar para o 190?</div>
+      <div class="faq-a">Não. É um programa em que os vizinhos ajudam a polícia a receber mais rápido as informações — não muda a prioridade do atendimento.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Precisa de um número mínimo de pessoas para participar?</div>
+      <div class="faq-a">Não, basta um ou mais moradores interessados.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">É obrigatório ter WhatsApp?</div>
+      <div class="faq-a">Sim, é a principal ferramenta de comunicação do programa.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">É necessário protocolo na Prefeitura?</div>
+      <div class="faq-a">
+        Apenas para as faixas de rua, que exigem ofício e seguem o modelo da PM. A placa individual na residência não precisa de ofício.
+        <div class="plate-wrap">
+          <img src="Rua Rosa.jpg" alt="Faixa da Vizinhança Solidária na Rua Rosa">
+          <div class="plate-caption">Na Rua Rosa, os moradores conseguiram o protocolo na prefeitura</div>
         </div>
-
-        <form action="https://formspree.io/f/mqpknqnq" method="POST" id="pvsForm">
-          <div class="form-group">
-            <label for="nome">Nome *</label>
-            <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
-          </div>
-
-          <div class="form-group">
-            <label for="numero_casa">Número da sua casa na rua Lírio *</label>
-            <input type="text" id="numero_casa" name="numero_casa" placeholder="Ex: 123 ou 123-A" required>
-          </div>
-
-          <div class="form-group">
-            <label for="telefone">Telefone / WhatsApp *</label>
-            <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999" required>
-          </div>
-
-          <div class="form-group">
-            <label for="email">E-mail</label>
-            <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com (opcional)">
-          </div>
-
-          <div class="form-group">
-            <label for="mensagem">Mensagem</label>
-            <textarea id="mensagem" name="mensagem" rows="4" placeholder="Escreva sua mensagem ou observação aqui (opcional)"></textarea>
-          </div>
-
-          <button type="submit" class="btn-submit">QUERO ADERIR AO PVS NA RUA LÍRIO AGORA</button>
-          
-          <p class="microcopy">🔒 Seus dados estão 100% seguros e serão utilizados apenas para a organização interna do PVS da Rua Lírio.</p>
-        </form>
       </div>
     </div>
-
-  </main>
-
-  <!-- 6. Rodapé (Footer) -->
-  <footer>
-    <div class="container">
-      <p>© Programa Vizinhança Solidária - Rua Lírio Osasco</p>
-      <p style="margin-top: 8px;">
-        <!--  <a href="#">Termos de Uso</a> | <a href="#">Política de Privacidade</a> -->
-      </p>
+    <div class="faq-item">
+      <div class="faq-q">Como participar?</div>
+      <div class="faq-a">É simples, sem burocracia. Basta procurar o tutor da rua e fazer um cadastro, que é levado à Companhia da Polícia Militar. Também é possível se informar no CONSEG do bairro.</div>
     </div>
+    <div class="faq-item">
+      <div class="faq-q">De onde surgiu a ideia?</div>
+      <div class="faq-a">Vem da polícia comunitária da Inglaterra. No Brasil, começou em Santo André, em 2003.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="emoji">📱</span> Canais de Comunicação — Para que Serve Cada Um</h2>
+    <p>Cada órgão tem uma função diferente. Saber qual acionar evita perda de tempo e garante que sua denúncia chegue a quem pode realmente agir.</p>
+
+    <h3>🚨 Polícia Militar — 190</h3>
+    <p>Emergência em andamento, assalto, arrombamento agora, briga de rua, violência doméstica ativa, suspeito rondando o local, invasão em curso. Ligue quando o perigo está acontecendo naquele exato momento.</p>
+
+    <h3>📄 Polícia Civil — 197</h3>
+    <p>Registro de Boletim de Ocorrência (BO) para crimes já ocorridos: roubo, furto, estelionato (golpes), agressão física, ameaça, injúria/calúnia, violência doméstica, perda de documentos. Pode ser feito pessoalmente ou pela <a href="https://www.delegaciaeletronica.policiacivil.sp.gov.br" target="_blank">Delegacia Eletrônica de São Paulo</a>. Não atua para intervenção emergencial ou ligação imediata.</p>
+
+    <h3>🛡️ Guarda Civil Municipal (GCM) — 153</h3>
+    <p>Proteção do patrimônio público municipal e apoio comunitário: vandalismo em praças, postos de saúde, praças e parques; perturbação de sossego; mediação de conflitos locais e apoio à fiscalização do comércio municipal.</p>
+
+    <h3>🏛️ Prefeitura de Osasco — 156</h3>
+    <p>Zeladoria urbana e pendências administrativas — não é de crime: infraestrutura; buraco, irregularidade para asfalto, calçadas obstruídas, terrenos abandonados, entulho, iluminação apagada, comércio ambulante sem licença, estabelecimentos sem alvará e encaminhamento de moradores em situação de rua para assistência social. Use o <a href="https://156.osasco.sp.gov.br" target="_blank">Fala Cidadão Osasco</a> ou o <a href="https://156.osasco.sp.gov.br" target="_blank">chat da Central 156</a> para anexar fotos e acompanhar o protocolo.</p>
+
+    <h3>🌐 Canais Digitais</h3>
+    <ul>
+      <li><strong>Delegacia Eletrônica (Polícia Civil):</strong> registre furto, roubo, estelionato, perda de documentos, injúria/calúnia e acidente sem vítimas, 24h — <a href="https://www.delegaciaeletronica.policiacivil.sp.gov.br" target="_blank">delegaciaeletronica.policiacivil.sp.gov.br</a></li>
+      <li><strong>Fala Cidadão Osasco (Prefeitura):</strong> zeladoria urbana e demandas administrativas, com anexo de fotos — <a href="https://156.osasco.sp.gov.br" target="_blank">156.osasco.sp.gov.br</a> — Fala Cidadão</li>
+      <li><strong>Central 156 — chat on-line:</strong> atendimento por chat direto no portal da Prefeitura — <a href="https://156.osasco.sp.gov.br" target="_blank">156.osasco.sp.gov.br</a> — Central 156</li>
+      <li><strong>Fale Conosco (Polícia Militar):</strong> canal oficial de dúvidas e contato institucional — <a href="https://www.policiamilitar.sp.gov.br" target="_blank">policiamilitar.sp.gov.br</a> — Fale Conosco</li>
+      <li><strong>Delegacia Eletrônica da GCM:</strong> formalização de ocorrências, de vandalismo e danos ao patrimônio público — <a href="https://www.osasco.sp.gov.br" target="_blank">osasco.sp.gov.br</a> — GCM</li>
+    </ul>
+
+    <p style="font-size: 13px; color: #666; margin-top: 12px;"><em>Confirme sempre se o endereço/cidade consta em sp.gov.br antes de enviar seus dados para evitar sites falsos.</em></p>
+
+    <div class="callout-tip">
+      <strong>Dica:</strong> sempre anote o número de protocolo gerado — é sua prova de que a denúncia foi registrada e o que permitirá cobrar retorno depois.
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="emoji">ℹ️</span> Saiba mais</h2>
+    <p><strong>Programa Vizinhança Solidária:</strong><br>
+    <a href="https://www.policiamilitar.sp.gov.br/unidades/copom/pvs" target="_blank">policiamilitar.sp.gov.br/unidades/copom/pvs</a></p>
+    
+    <p><strong>CONSEG:</strong><br>
+    <a href="https://www.ssp.sp.gov.br/conseg" target="_blank">ssp.sp.gov.br/conseg</a></p>
+  </section>
+
+  <section>
+    <h2><span class="emoji">📝</span> Quero fazer parte do Programa Vizinhança Solidária</h2>
+    <form action="https://formspree.io/f/mqpknqnq" method="POST">
+      <div class="form-group">
+        <label for="nome">Nome  *</label>
+        <input type="text" id="nome" name="nome" required placeholder="Digite seu nome ">
+      </div>
+
+      <div class="form-group">
+        <label for="telefone">Telefone / WhatsApp *</label>
+        <input type="tel" id="telefone" name="telefone" required placeholder="(11) 99999-9999">
+      </div>
+
+      <div class="form-group">
+        <label for="rua">Sua Rua *</label>
+        <select id="rua" name="rua" required>
+          <option value="" disabled selected>Selecione a sua rua</option>
+          <!--<option value="Rua Rosa">Rua Rosa</option>-->
+          <option value="Rua Lírio">Rua Lírio</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="numero">Número da Casa *</label>
+        <input type="text" id="numero" name="numero" required placeholder="Ex: 123">
+      </div>
+
+      <div class="form-group">
+        <label for="mensagem">Dúvidas ou Observações</label>
+        <textarea id="mensagem" name="mensagem" rows="4" placeholder="Escreva aqui suas dúvidas ou recados para o tutor"></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit">Enviar Cadastro</button>
+    </form>
+  </section>
+
+  <div class="closing">
+    <p>Vizinho presente, bairro seguro.</p>
+    <p>Juntos fazemos o Jardim das Flores um lugar melhor para se viver! <span class="heart">❤️</span></p>
+  </div>
+
+  <footer>
+    <p>Programa Vizinhança Solidária — Jardim das Flores | Apoio Polícia Militar de SP</p>
   </footer>
 
-  <!-- Script de Máscara e Validação JS -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const inputTelefone = document.getElementById('telefone');
-      const form = document.getElementById('pvsForm');
-
-      // Máscara de Telefone (XX) XXXXX-XXXX ou (XX) XXXX-XXXX
-      inputTelefone.addEventListener('input', function(e) {
-        let value = e.target.value.replace(/\D/g, ''); // Remove não dígitos
-        
-        if (value.length > 11) {
-          value = value.slice(0, 11);
-        }
-
-        if (value.length > 6) {
-          value = `(${value.slice(0, 2)}) ${value.slice(2, 7)}-${value.slice(7)}`;
-        } else if (value.length > 2) {
-          value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
-        } else if (value.length > 0) {
-          value = `(${value}`;
-        }
-
-        e.target.value = value;
-      });
-
-      // Validação do Formulário no Submit
-      form.addEventListener('submit', function(e) {
-        const telefoneVal = inputTelefone.value.replace(/\D/g, '');
-        const emailVal = document.getElementById('email').value.trim();
-
-        // Validar se o telefone tem pelo menos 10 dígitos (DDD + Número)
-        if (telefoneVal.length < 10) {
-          e.preventDefault();
-          alert('Por favor, insira um número de telefone/WhatsApp válido com DDD.');
-          inputTelefone.focus();
-          return false;
-        }
-
-        // Validação de e-mail apenas se o campo for preenchido
-        if (emailVal !== '') {
-          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          if (!emailRegex.test(emailVal)) {
-            e.preventDefault();
-            alert('Por favor, insira um endereço de e-mail válido.');
-            document.getElementById('email').focus();
-            return false;
-          }
-        }
-      });
-    });
-  </script>
+</div>
 </body>
 </html>
