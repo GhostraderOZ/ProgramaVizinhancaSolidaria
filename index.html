@@ -515,7 +515,131 @@
   </section>
 
   <section>
+
+<section>
     <h2><span class="emoji">📝</span> Quero fazer parte do Programa Vizinhança Solidária</h2>
+    
+    <form id="pvs-form" action="https://formspree.io/f/mqpknqnq" method="POST">
+      <div class="form-group">
+        <label for="nome">Nome *</label>
+        <input type="text" id="nome" name="nome" required placeholder="Digite seu nome">
+      </div>
+
+      <div class="form-group">
+        <label for="telefone">Telefone / WhatsApp *</label>
+        <input type="tel" id="telefone" name="telefone" required placeholder="(11) 99999-9999">
+      </div>
+
+      <div class="form-group">
+        <label for="rua">Sua Rua *</label>
+        <select id="rua" name="rua" required>
+          <option value="" disabled selected>Selecione a sua rua</option>
+          <option value="Avenida Crisântemo" data-endpoint="">Avenida Crisântemo</option>
+          <option value="Avenida das Flores" data-endpoint="">Avenida das Flores</option>
+          <option value="Avenida Diogo Antônio Feijó (Lado Sul)" data-endpoint="">Avenida Diogo Antônio Feijó (Lado Sul)</option>
+          <option value="Avenida Horácio Lafer" data-endpoint="">Avenida Horácio Lafer</option>
+          <option value="Rua Acácia" data-endpoint="">Rua Acácia</option>
+          <option value="Rua Açucena" data-endpoint="">Rua Açucena</option>
+          <option value="Rua Anemona" data-endpoint="">Rua Anemona</option>
+          <option value="Rua Angélica" data-endpoint="">Rua Angélica</option>
+          <option value="Rua Argélia" data-endpoint="">Rua Argélia</option>
+          <option value="Rua Aristides" data-endpoint="">Rua Aristides</option>
+          <option value="Rua Aristides Belini" data-endpoint="">Rua Aristides Belini</option>
+          <option value="Rua Boninas" data-endpoint="">Rua Boninas</option>
+          <option value="Rua Cactos" data-endpoint="">Rua Cactos</option>
+          <option value="Rua Camélia" data-endpoint="">Rua Camélia</option>
+          <option value="Rua Citrinium" data-endpoint="">Rua Citrinium</option>
+          <option value="Rua Cosmos" data-endpoint="">Rua Cosmos</option>
+          <option value="Rua Cravo" data-endpoint="">Rua Cravo</option>
+          <option value="Rua Dália" data-endpoint="">Rua Dália</option>
+          <option value="Rua Eloendro" data-endpoint="">Rua Eloendro</option>
+          <option value="Rua Flor de Amora" data-endpoint="">Rua Flor de Amora</option>
+          <option value="Rua Gardênia" data-endpoint="">Rua Gardênia</option>
+          <option value="Rua Georgina" data-endpoint="">Rua Georgina</option>
+          <option value="Rua Girassol" data-endpoint="">Rua Girassol</option>
+          <option value="Rua Hortênsia" data-endpoint="">Rua Hortênsia</option>
+          <option value="Rua Ipê" data-endpoint="">Rua Ipê</option>
+          <option value="Rua Jacinto" data-endpoint="">Rua Jacinto</option>
+          <option value="Rua Jasmim" data-endpoint="">Rua Jasmim</option>
+          <option value="Rua Lilás" data-endpoint="">Rua Lilás</option>
+          <option value="Rua Linion" data-endpoint="">Rua Linion</option>
+          <!-- ENDPOINT RUA LÍRIO -->
+          <option value="Rua Lírio" data-endpoint="https://formspree.io/f/mqpknqnq">Rua Lírio</option>
+          <option value="Rua Magnólia" data-endpoint="">Rua Magnólia</option>
+          <option value="Rua Manacá" data-endpoint="">Rua Manacá</option>
+          <option value="Rua Margaridas" data-endpoint="">Rua Margaridas</option>
+          <option value="Rua Mimosa" data-endpoint="">Rua Mimosa</option>
+          <option value="Rua Miosótis" data-endpoint="">Rua Miosótis</option>
+          <option value="Rua Narciso" data-endpoint="">Rua Narciso</option>
+          <option value="Rua Orquídea" data-endpoint="">Rua Orquídea</option>
+          <option value="Rua Papoula" data-endpoint="">Rua Papoula</option>
+          <option value="Rua Petúnia" data-endpoint="">Rua Petúnia</option>
+          <!-- ENDPOINT RUA PHELOX -->
+          <option value="Rua Phelox" data-endpoint="https://formspree.io/f/t34ghtnu">Rua Phelox</option>
+          <option value="Rua Resedá" data-endpoint="">Rua Resedá</option>
+          <option value="Rua Rosa" data-endpoint="">Rua Rosa</option>
+          <option value="Rua Sempre-Viva" data-endpoint="">Rua Sempre-Viva</option>
+          <option value="Rua Tília" data-endpoint="">Rua Tília</option>
+          <option value="Rua Ulisses Soares" data-endpoint="">Rua Ulisses Soares</option>
+          <option value="Rua Violeta" data-endpoint="">Rua Violeta</option>
+          <option value="Rua Vitória Régia" data-endpoint="">Rua Vitória Régia</option>
+          <option value="Rua Zina" data-endpoint="">Rua Zina</option>
+          <option value="Viela José Cubas de Miranda" data-endpoint="">Viela José Cubas de Miranda</option>
+        </select>
+        
+        <!-- Mensagem dinâmica caso a rua esteja indisponível -->
+        <div id="msg-status" style="display: none; margin-top: 6px; font-size: 13px; font-weight: 600; color: #C1272D;">
+          ⚠️️ Não disponível para inscrição no momento.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="numero">Número da Casa *</label>
+        <input type="text" id="numero" name="numero" required placeholder="Ex: 123">
+      </div>
+
+      <div class="form-group">
+        <label for="mensagem">Dúvidas ou Observações</label>
+        <textarea id="mensagem" name="mensagem" rows="4" placeholder="Escreva aqui suas dúvidas ou recados para o tutor"></textarea>
+      </div>
+
+      <button type="submit" id="btn-submit" class="btn-submit">Enviar Cadastro</button>
+    </form>
+  </section>
+
+  <script>
+    const selectRua = document.getElementById('rua');
+    const formPVS = document.getElementById('pvs-form');
+    const btnSubmit = document.getElementById('btn-submit');
+    const msgStatus = document.getElementById('msg-status');
+
+    selectRua.addEventListener('change', function() {
+      const selectedOption = this.options[this.selectedIndex];
+      const endpoint = selectedOption.getAttribute('data-endpoint');
+
+      if (endpoint && endpoint.trim() !== "") {
+        // Define o endpoint no action do formulário
+        formPVS.setAttribute('action', endpoint);
+        
+        // Habilita o botão e esconde a mensagem de indisponibilidade
+        btnSubmit.disabled = false;
+        btnSubmit.style.opacity = "1";
+        btnSubmit.style.cursor = "pointer";
+        msgStatus.style.display = 'none';
+      } else {
+        // Se a rua não tiver endpoint configurado
+        formPVS.removeAttribute('action');
+        
+        // Desabilita o botão e exibe o aviso
+        btnSubmit.disabled = true;
+        btnSubmit.style.opacity = "0.5";
+        btnSubmit.style.cursor = "not-allowed";
+        msgStatus.style.display = 'block';
+      }
+    });
+  </script>
+
+    <!-- <h2><span class="emoji">📝</span> Quero fazer parte do Programa Vizinhança Solidária</h2>
     <form action="https://formspree.io/f/mqpknqnq" method="POST">
       <div class="form-group">
         <label for="nome">Nome *</label>
@@ -531,7 +655,59 @@
         <label for="rua">Sua Rua *</label>
         <select id="rua" name="rua" required>
           <option value="" disabled selected>Selecione a sua rua</option>
-          <option value="Rua Lírio">Rua Lírio</option>
+         
+
+
+<option value="Avenida Crisântemo">Avenida Crisântemo</option>
+<option value="Avenida das Flores">Avenida das Flores</option>
+<option value="Avenida Diogo Antônio Feijó (Lado Sul)">Avenida Diogo Antônio Feijó (Lado Sul)</option>
+<option value="Avenida Horácio Lafer">Avenida Horácio Lafer</option>
+<option value="Rua Acácia">Rua Acácia</option>
+<option value="Rua Açucena">Rua Açucena</option>
+<option value="Rua Anemona">Rua Anemona</option>
+<option value="Rua Angélica">Rua Angélica</option>
+<option value="Rua Argélia">Rua Argélia</option>
+<option value="Rua Aristides">Rua Aristides</option>
+<option value="Rua Aristides Belini">Rua Aristides Belini</option>
+<option value="Rua Boninas">Rua Boninas</option>
+<option value="Rua Cactos">Rua Cactos</option>
+<option value="Rua Camélia">Rua Camélia</option>
+<option value="Rua Citrinium">Rua Citrinium</option>
+<option value="Rua Cosmos">Rua Cosmos</option>
+<option value="Rua Cravo">Rua Cravo</option>
+<option value="Rua Dália">Rua Dália</option>
+<option value="Rua Eloendro">Rua Eloendro</option>
+<option value="Rua Flor de Amora">Rua Flor de Amora</option>
+<option value="Rua Gardênia">Rua Gardênia</option>
+<option value="Rua Georgina">Rua Georgina</option>
+<option value="Rua Girassol">Rua Girassol</option>
+<option value="Rua Hortênsia">Rua Hortênsia</option>
+<option value="Rua Ipê">Rua Ipê</option>
+<option value="Rua Jacinto">Rua Jacinto</option>
+<option value="Rua Jasmim">Rua Jasmim</option>
+<option value="Rua Lilás">Rua Lilás</option>
+<option value="Rua Linion">Rua Linion</option>
+<option value="Rua Lírio">Rua Lírio</option>
+<option value="Rua Magnólia">Rua Magnólia</option>
+<option value="Rua Manacá">Rua Manacá</option>
+<option value="Rua Margaridas">Rua Margaridas</option>
+<option value="Rua Mimosa">Rua Mimosa</option>
+<option value="Rua Miosótis">Rua Miosótis</option>
+<option value="Rua Narciso">Rua Narciso</option>
+<option value="Rua Orquídea">Rua Orquídea</option>
+<option value="Rua Papoula">Rua Papoula</option>
+<option value="Rua Petúnia">Rua Petúnia</option>
+<option value="Rua Phelox">Rua Phelox</option>
+<option value="Rua Resedá">Rua Resedá</option>
+<option value="Rua Rosa">Rua Rosa</option>
+<option value="Rua Sempre-Viva">Rua Sempre-Viva</option>
+<option value="Rua Tília">Rua Tília</option>
+<option value="Rua Ulisses Soares">Rua Ulisses Soares</option>
+<option value="Rua Violeta">Rua Violeta</option>
+<option value="Rua Vitória Régia">Rua Vitória Régia</option>
+<option value="Rua Zina">Rua Zina</option>
+<option value="Viela José Cubas de Miranda">Viela José Cubas de Miranda</option>
+
         </select>
       </div>
 
@@ -558,6 +734,6 @@
     <p>Programa Vizinhança Solidária — Jardim das Flores | Apoio Polícia Militar de SP</p>
   </footer>
 
-</div>
+</div> -->
 </body>
 </html>
