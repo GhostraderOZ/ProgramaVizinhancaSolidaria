@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guia de Registros de Ocorrências - PVS Osasco</title>
+  <style>
+    :root {
+      --primary-red: #D32F2F;
+      --secondary-blue: #1976D2;
+      --warning-orange: #F57C00;
+      --dark-grey: #212121;
+      --light-grey: #F5F5F5;
+      --border-color: #E0E0E0;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: var(--secondary-blue);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .header-card {
+      border: 2px solid var(--dark-grey);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 30px;
+      background: #fff;
+    }
+
+    .header-title {
+      color: var(--primary-red);
+      font-weight: 800;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    .emergency-badge {
+      display: inline-block;
+      background-color: var(--primary-red);
+      color: white;
+      font-size: 2.2rem;
+      font-weight: bold;
+      padding: 5px 25px;
+      border-radius: 8px;
+      margin: 15px 0;
+    }
+
+    .heatmap-box {
+      background-color: var(--light-grey);
+      border-radius: 8px;
+      padding: 20px;
+      margin: 25px 0;
+      text-align: center;
+    }
+
+    .heatmap-svg {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+    }
+
+    .alert-callout {
+      border-left: 5px solid var(--primary-red);
+      background-color: #FFEBEE;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    h1, h2, h3 {
+      color: var(--dark-grey);
+    }
+
+    h2 {
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 8px;
+      margin-top: 35px;
+    }
+
+    .org-section {
+      margin-bottom: 25px;
+      padding: 15px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+    }
+
+    .org-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: var(--secondary-blue);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .badge-num {
+      background: var(--dark-grey);
+      color: #fff;
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 25px 0;
+    }
+
+    th, td {
+      border: 1px solid var(--border-color);
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--dark-grey);
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: var(--light-grey);
+    }
+
+    .link-button {
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: var(--secondary-blue);
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+      margin-top: 5px;
+      margin-right: 5px;
+    }
+
+    .link-button:hover {
+      background-color: #0D47A1;
+    }
+
+    .footer {
+      font-size: 0.85rem;
+      color: #666;
+      border-top: 1px solid var(--border-color);
+      margin-top: 40px;
+      padding-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- LINK VOLTAR PARA HOME -->
+  <a href="index.html" class="back-link">&larr; Voltar para a Página Principal</a>
+
+  <!-- CARD CABEÇALHO -->
+  <div class="header-card">
+    <div class="header-title">Vizinhança Solidária</div>
+    <p><strong>ÁREA VIGIADA PELA COMUNIDADE</strong><br>
+    COMUNICAMOS TODA ATITUDE SUSPEITA IMEDIATAMENTE PARA A POLÍCIA</p>
+    <div>LIGUE</div>
+    <div class="emergency-badge">190</div>
+  </div>
+
+  <h1 style="text-align: center;">PROGRAMA VIZINHANÇA SOLIDÁRIA</h1>
+  <h3 style="text-align: center; color: #555;">GUIA DE REGISTROS DE OCORRÊNCIAS</h3>
+  <p style="text-align: center;"><em>Guia completo: qual órgão acionar, quando, como e escopo total de atendimento - Osasco/SP</em></p>
+
+  <!-- MAPA DE CALOR -->
+  <h2>Você sabe o que é um "mapa de calor"?</h2>
+  <p>Imagine um mapa da nossa região onde cada ocorrência registrada – um furto, um barulho de madrugada, um buraco na rua – vira um pontinho colorido. Quanto mais denúncias acontecem no mesmo lugar, mais "quente" (vermelho) aquele ponto fica no mapa. Onde quase não há registro, o mapa fica "frio" (azul ou verde), mesmo que o problema exista de verdade ali.</p>
+
+  <div class="heatmap-box">
+    <svg class="heatmap-svg" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+      <rect width="400" height="200" fill="#f0f0f0" rx="10"/>
+      <line x1="50" y1="60" x2="350" y2="60" stroke="#ddd" stroke-width="4"/>
+      <line x1="50" y1="125" x2="350" y2="125" stroke="#ddd" stroke-width="4"/>
+      <line x1="130" y1="20" x2="130" y2="180" stroke="#ddd" stroke-width="4"/>
+      <line x1="280" y1="20" x2="280" y2="180" stroke="#ddd" stroke-width="4"/>
+      <circle cx="130" cy="70" r="50" fill="#D32F2F" opacity="0.85"/>
+      <text x="130" y="30" font-family="Arial" font-size="11" font-weight="bold" fill="#7D0000" text-anchor="middle">MUITAS DENÚNCIAS</text>
+      <circle cx="280" cy="120" r="35" fill="#F57C00" opacity="0.85"/>
+      <text x="280" y="170" font-family="Arial" font-size="11" font-weight="bold" fill="#B75100" text-anchor="middle">ALGUMAS</text>
+      <circle cx="330" cy="45" r="25" fill="#1976D2" opacity="0.85"/>
+      <text x="330" y="85" font-family="Arial" font-size="10" font-weight="bold" fill="#0D47A1" text-anchor="middle">QUASE NENHUMA</text>
+    </svg>
+    <p><small>Cada pontinho é uma denúncia registrada. Onde eles se acumulam, o mapa "esquenta" e vira prioridade de atendimento.</small></p>
+  </div>
+
+  <p>É basicamente assim que cada entidade descobre onde o bicho está pegando: elas não têm bola de cristal, então usam a quantidade de registros formais (BOs, protocolos do 156, chamados do 190/153) para decidir para onde mandar mais viaturas, mais fiscais, mais atenção.</p>
+
+  <div class="alert-callout">
+    <strong>Na prática:</strong> se 10 pessoas ligam reclamando do mesmo bar, aquela rua "esquenta" no mapa e vira prioridade. Se só uma pessoa liga uma vez, o ponto fica "frio" – mesmo que o problema seja grave, ele some no meio de outras prioridades. Por isso registrar sempre, no órgão certo, é o que realmente move a fila.
+  </div>
+
+  <h2>A regra de ouro</h2>
+  <p>Cada órgão tem uma função diferente. Saber qual acionar evita perda de tempo e garante que sua denúncia chegue a quem pode realmente agir:</p>
+  <ul>
+    <li><strong>Polícia Militar (PM):</strong> emergência em andamento – algo está acontecendo agora.</li>
+    <li><strong>Polícia Civil:</strong> investigação – o fato já aconteceu, o autor já foi embora.</li>
+    <li><strong>Guarda Civil Municipal (GCM):</strong> patrimônio público e apoio comunitário.</li>
+    <li><strong>Prefeitura de Osasco:</strong> zeladoria urbana e questões administrativas – não é crime, é infraestrutura ou posturas.</li>
+  </ul>
+
+  <h2>Escopo completo de atendimento por órgão</h2>
+
+  <!-- PM -->
+  <div class="org-section">
+    <div class="org-title">
+      Polícia Militar (PM)
+      <span class="badge-num">190</span>
+    </div>
+    <p><em>Emergência, função ostensiva.</em> Acione quando o crime ou o perigo está acontecendo naquele exato momento e há risco iminente.</p>
+    <ul>
+      <li>Assalto/roubo em andamento à mão armada</li>
+      <li>Brigas de rua e agressões físicas em curso</li>
+      <li>Violência doméstica ativa (agressor no local)</li>
+      <li>Suspeitos rondando o local ou invasão em curso</li>
+      <li>Situações onde o criminoso ainda está no local ou acabou de fugir (flagrante)</li>
+      <li>Qualquer necessidade de socorro policial imediato</li>
+    </ul>
+    <a href="https://www.policiamilitar.sp.gov.br" target="_blank" class="link-button">Fale Conosco / FAQ PM-SP</a>
+  </div>
+
+  <!-- POLICIA CIVIL -->
+  <div class="org-section">
+    <div class="org-title">
+      Polícia Civil
+      <span class="badge-num">197</span>
+    </div>
+    <p><em>Investigação, registro de BO.</em> Função investigativa. Registro de BO para crimes já ocorridos (presencial ou Delegacia Eletrônica).</p>
+    <ul>
+      <li>Roubo e furto de veículos, celulares, documentos ou objetos</li>
+      <li>Fraude e estelionato (golpes)</li>
+      <li>Furto de fios e cabos em vias públicas</li>
+      <li>Desaparecimento e encontro de pessoas</li>
+      <li>Acidente de trânsito sem vítimas</li>
+      <li>Injúria, calúnia, difamação, ameaça e agressão física</li>
+      <li>Violência doméstica contra a mulher, Intolerância e maus-tratos a animais</li>
+    </ul>
+    <a href="https://www.delegaciaeletronica.policia-civil.sp.gov.br" target="_blank" class="link-button">Delegacia Eletrônica SP</a>
+  </div>
+
+  <!-- DISQUE DENÚNCIA -->
+  <div class="org-section">
+    <div class="org-title">
+      Disque Denúncia
+      <span class="badge-num">181</span>
+    </div>
+    <p><em>Denúncias e evidências para investigações (100% Anônimo).</em></p>
+    <ul>
+      <li>Tráfico de drogas e procurados pela Justiça</li>
+      <li>Maus-tratos contra animais e crimes ambientais</li>
+      <li>Desmanches, receptação de cargas e vandalismo</li>
+    </ul>
+    <a href="https://www.webdenuncia.sp.gov.br" target="_blank" class="link-button">Portal Web Denúncia</a>
+  </div>
+
+  <!-- GCM -->
+  <div class="org-section">
+    <div class="org-title">
+      Guarda Civil Municipal (GCM)
+      <span class="badge-num">153</span>
+    </div>
+    <p><em>Patrimônio público e apoio comunitário.</em></p>
+    <ul>
+      <li>Vandalismo em escolas, postos de saúde, praças e parques</li>
+      <li>Pichação e danos ao patrimônio público (flagrante)</li>
+      <li>Perturbação de sossego e mediação de conflitos locais</li>
+    </ul>
+  </div>
+
+  <!-- PREFEITURA -->
+  <div class="org-section">
+    <div class="org-title">
+      Prefeitura de Osasco
+      <span class="badge-num">156</span>
+    </div>
+    <p><em>Zeladoria, posturas e administrativo.</em></p>
+    <ul>
+      <li>Perturbação do sossego (Lei do Psiu), bares ilegais e pancadões</li>
+      <li>Zeladoria urbana (buracos, iluminação, terrenos, dengue, entulho)</li>
+      <li>Comércio irregular e acolhimento social de pessoas em situação de rua</li>
+    </ul>
+    <a href="https://central156.osasco.sp.gov.br" target="_blank" class="link-button">Central 156 Osasco</a>
+    <a href="https://falacidadao.osasco.sp.gov.br" target="_blank" class="link-button">Ouvidoria Fala Cidadão</a>
+  </div>
+
+  <!-- RESUMO EM TABELA -->
+  <h2>Resumo rápido por situação</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>SITUAÇÃO</th>
+        <th>ACIONAR</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Crime acontecendo agora / perigo iminente</td><td><strong>PM - 190</strong></td></tr>
+      <tr><td>Crime já ocorrido (furto, roubo, golpe)</td><td><strong>Polícia Civil - 197 / Delegacia Eletrônica</strong></td></tr>
+      <tr><td>Vandalismo em patrimônio público</td><td><strong>GCM - 153</strong></td></tr>
+      <tr><td>Barulho de bar / pancadão / perturbação</td><td><strong>GCM - 153 ou Prefeitura - 156</strong></td></tr>
+      <tr><td>Buraco, iluminação, entulho, dengue</td><td><strong>Prefeitura - 156</strong></td></tr>
+      <tr><td>Denúncias anônimas</td><td><strong>Disque Denúncia - 181</strong></td></tr>
+      <tr><td>Morador de rua em vulnerabilidade</td><td><strong>Prefeitura - 156 (Assistência Social)</strong></td></tr>
+    </tbody>
+  </table>
+
+  <!-- DICAS -->
+  <h2>Dicas para fortalecer sua denúncia</h2>
+  <ul>
+    <li><strong>Sempre anote o número de protocolo gerado:</strong> ele é sua prova e permite cobrar retorno.</li>
+    <li><strong>Anexe fotos e vídeos:</strong> válido para a Central 156 e Delegacia Eletrônica.</li>
+    <li><strong>Compartilhe o protocolo com o tutor do PVS:</strong> ajuda a embasar cobranças formais nas reuniões do CONSEG.</li>
+    <li><strong>Câmeras particulares (MonitoraOZ):</strong> As imagens das câmeras de segurança de sua residência ou comércio podem ser compartilhadas com o COI através do programa MonitoraOZ.</li>
+  </ul>
+
+  <div class="footer">
+    <p><strong>Elaboração:</strong> PVS Jardim das Flores - Osasco/SP<br>
+    <strong>Revisão:</strong> AMALTINO - Associação de Moradores de Presidente Altino / CONSEG Osasco Centro<br>
+    <strong>Última revisão:</strong> Setembro/2026<br>
+    <em>Uso livre e recomendado para todos os demais grupos do Programa Vizinhança Solidária (PVS) de Osasco/SP.</em></p>
+  </div>
+
+</div>
+
+</body>
+</html>
